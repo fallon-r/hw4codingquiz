@@ -12,6 +12,7 @@
 /* bg stylizer */
 
 body {
+    padding-top: 65px;
     margin: auto;
     background-image: url(https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif);
     background-size: cover;

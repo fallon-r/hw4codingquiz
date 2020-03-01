@@ -25,30 +25,30 @@
     <!-- navbar with links to highscores and centered timer -->
     <div class="container-fluid">
 
-        <nav class="navbar navbar-default fixed-top bg-dark">
+        <nav class="navbar navbar-default fixed-top bg-dark text-success">
             <div class="navbar-header">
-                <a href="index.html" class="navbar-brand">Coding Quiz</a>
+                <a href="index.html" class="navbar-brand text-success">Coding Quiz</a>
             </div>
-            <span class="navbar-text text-light" id="timerDisplay">Test</span>
-            <ul class="nav navbar-nav justify-content-right">
-                <a href="highscores.html">High Scores</a>
+            <span class="navbar-text text-success display-4 mx-auto" id="timerDisplay">Test</span>
+            <ul class="nav navbar-nav justify-content-right text-success">
+                <a href="highscores.html" class="text-success">High Scores</a>
             </ul>
         </nav>
     </div>
     <!-- cards to be fillied -->
     <div class="container-fluid col-8 justify-content-center" id="questionCard">
-        <div class="card">
+        <div class="card bg-secondary">
             <!-- card header holds the q# -->
-            <div class="card-header text-center" id="questionNumber"></div>
+            <div class="card-header text-center bg-dark text-success lead" id="questionNumber">Filler</div>
             <!-- contains the question text -->
-            <div class="card-title text-left" id="question"></div>
+            <div class="card-title text-left text-light ml-2 lead" id="question">filler</div>
             <div class="card-body">
                 <!-- here the user selects their answer. onclick the buttons will switch to active appearance and the answer will be logged -->
                 <div class="btn-grp-vertical w-100 justify-content-center" role="group">
-                    <div class="btn btn-rounded btn-block btn-primary text-left" data-toggle="button" type="button" id="A">A: </div>
-                    <div class="btn btn-rounded btn-block btn-primary text-left" data-toggle="button" type="button" id="B">B: </div>
-                    <div class="btn btn-rounded btn-block btn-primary text-left" data-toggle="button" type="button" id="C">C: </div>
-                    <div class="btn btn-rounded btn-block btn-primary text-left" data-toggle="button" type="button" id="D">D: </div>
+                    <div class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="button" type="button" id="A">A: </div>
+                    <div class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="button" type="button" id="B">B: </div>
+                    <div class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="button" type="button" id="C">C: </div>
+                    <div class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="button" type="button" id="D">D: </div>
                 </div>
                 <div class="card-footer">
                     <!-- stores user answer in session storage  -->
