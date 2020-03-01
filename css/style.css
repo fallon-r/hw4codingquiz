@@ -1,0 +1,19 @@
+/* question card & tabe spacer  */
+
+#questionCard {
+    padding-top: 10%;
+}
+
+#HSTable {
+    padding-top: 5%;
+}
+
+
+/* bg stylizer */
+
+body {
+    margin: auto;
+    background-image: url(https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
