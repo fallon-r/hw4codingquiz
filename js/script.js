@@ -34,7 +34,11 @@ $("#startBtn").click(function(event) {
     run_clock('#timerDisplay', deadline);
 
     $("#questionNumber").append(1);
-
+    $("#question").append("What color is the sky?");
+    $("#A").append("Red");
+    $("#B").append("Yellow");
+    $("#C").append("Blue");
+    $("#D").append("Green");
 });
 
 // submit button 
