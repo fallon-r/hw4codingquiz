@@ -1,3 +1,12 @@
+var qNum = 1;
+var qArray = ["What color is the sky?",
+    "Why did the chicken cross the road?",
+    "What's the frequency, Kenneth?",
+    "Warum ist die Banane krumm?"
+];
+
+
+
 // Click event for timer 
 $("#startBtn").click(function(event) {
     // remove the start button
@@ -33,22 +42,28 @@ $("#startBtn").click(function(event) {
     }
     run_clock('#timerDisplay', deadline);
 
-    $("#questionNumber").append(1);
-    $("#question").append("What color is the sky?");
+    $("#questionNumber").text("Question #" + qNum++);
+    $("#question").append(qArray[0]);
     $("#A").append("Red");
     $("#B").append("Yellow");
     $("#C").append("Blue");
     $("#D").append("Green");
+    $("#submit").prop('disabled', false)
 });
 
 // submit button 
 $("#submit").click(function(event) {
-    for (var i = 0; i > 11; i++) {
-        i = i++;
-        $("#questionNumber").append(i);
 
-    }
-})
+    for (var i = 1; i < 11; i++) {
+        $("#questionNumber").text("Question #" + qNum++);
+        $("#question").text(qArray[i++]);
+    };
+
+    console.log("Should increment qNum");
+
+
+
+});
 
 
 
@@ -64,7 +79,6 @@ $("#submit").click(function(event) {
 //      a: 2 }
 //       ]
 
-var qArray = ["What color is the sky?"]
 
 
 // Generate first question + answers + data attributes 
