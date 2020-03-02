@@ -1,52 +1,83 @@
-var qNum = 1;
-
 // question Array
 var qArray = [{
-        question: "What color is the sky?",
-        a: "red",
-        b: "blue",
-        c: "green",
-        d: "purple"
+        question: "Who created Javascript?",
+        a: "Brendan Eich",
+        b: "Bill Gates",
+        c: "Steve Jobs",
+        d: "Richard Stallman"
     },
     {
-        question: "What color is the ocean",
-        a: "pink",
-        b: "blue",
-        c: "green",
-        d: "purple"
+        question: "What is the command to clear a console?",
+        a: "console.log(clear)",
+        b: "console.empty()",
+        c: "clear",
+        d: "console.clear()"
     }, {
-        question: "What color is the sky?",
+        question: "HTML stands for :",
+        a: "Hyper Transient Maker Language",
+        b: "Hyper Text Markup Language",
+        c: "Halode Typographic Maximized Lexicon",
+        d: "Hadron Transforming Markdown Launcher"
+    }, {
+        question: "What color will the hex #ff0000 create?",
         a: "red",
         b: "blue",
         c: "green",
         d: "purple"
     }, {
-        question: "What color is the sky?",
-        a: "red",
-        b: "blue",
-        c: "green",
-        d: "purple"
+        question: "Who regulates HTML Standards?",
+        a: "BSD",
+        b: "Oracle",
+        c: "Apple",
+        d: "W3C"
     }, {
-        question: "What color is the sky?",
-        a: "red",
-        b: "blue",
-        c: "green",
-        d: "purple"
+        question: "Who is the director of the W3C?",
+        a: "Tim Cook",
+        b: "Tim Curry",
+        c: "Tim Allen",
+        d: "Tim Berners-Lee"
     }, {
-        question: "What color is a banana?",
-        a: "red",
-        b: "blue",
-        c: "yellow",
-        d: "purple"
-    },
+        question: "The creator of the first ROM cartridge was:",
+        a: "Jerry Lawler",
+        b: "Jerry Lawson",
+        c: "Jerry Seinfeld",
+        d: "Jerry Louis"
+    }, {
+        question: "The following is NOT an array method",
+        a: "array.splice()",
+        b: "array.slice()",
+        c: "array.split()",
+        d: "array.spin()"
+    }, {
+        question: "CSS stands for:",
+        a: "Cascading Style Sandwich",
+        b: "Cataclysmic Style Synthesizer",
+        c: "Coronal Stylizing System",
+        d: "Cascading Style Sheet"
+    }, {
+        question: "If (i != 0) runs when",
+        a: "i is NOT equal to 0",
+        b: "i is equal to 0",
+        c: "i = zero",
+        d: "i is undefined"
+    }, {
+        question: "if (i > 4 && n < 7) will run when",
+        a: "i is 5",
+        b: "i is 3 and n is 6",
+        c: "n is 6",
+        d: "i is 7 and n is 5"
+    }
 
 ];
+var countForI = 0;
 
 
 
 
 // Click event for timer 
 $("#startBtn").click(function(event) {
+    countForI = countForI + 1;
+
     // remove the start button
     $("#startBtn").remove();
     // timer creation
@@ -84,7 +115,7 @@ $("#startBtn").click(function(event) {
 
     // initialize quiz with first question
 
-    $("#questionNumber").text("Question #" + qNum++);
+    $("#questionNumber").text("Question #" + countForI);
     $("#question").text(qArray[0].question);
     $("#A").text(qArray[0].a);
     $("#B").text(qArray[0].b);
@@ -100,17 +131,15 @@ $("#startBtn").click(function(event) {
 // submit button 
 $("#submit").click(function(event) {
 
-    for (var i = 0; i < qArray.length + 1; i++) {
-        $("#questionNumber").text("Question #" + i);
-        $("#question").text(qArray[i].question);
-        $("#A").text(qArray[i].a);
-        $("#B").text(qArray[i].b);
-        $("#C").text(qArray[i].c);
-        $("#D").text(qArray[i].d);
-    };
+    countForI = countForI + 1;
 
+    $("#questionNumber").text("Question #" + countForI);
+    $("#question").text(qArray[countForI].question);
+    $("#A").text(qArray[countForI].a);
+    $("#B").text(qArray[countForI].b);
+    $("#C").text(qArray[countForI].c);
+    $("#D").text(qArray[countForI].d);
 
-    console.log("Should increment qNum");
 
 });
 
@@ -118,17 +147,6 @@ $("#submit").click(function(event) {
 
 // Outline / Pseudo code
 // for HW - week 4
-// Create Q&A Object.  Maybe an array? 
-// ex. Q&A = [
-//   { q: " what is this?" 
-//      1: " "
-//      2: " "
-//      3: " "
-//      4: " "
-//      a: 2 }
-//       ]
-
-
 
 // Generate first question + answers + data attributes 
 // add "click" event for answer buttons 
