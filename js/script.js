@@ -71,6 +71,13 @@ var qArray = [{
 ];
 var countForI = 0;
 
+// game dead till iniitialized
+$("#submit").prop('disabled', true);
+$("#A").prop('disabled', true);
+$("#B").prop('disabled', true);
+$("#C").prop('disabled', true);
+$("#D").prop('disabled', true);
+
 
 
 
@@ -121,9 +128,51 @@ $("#startBtn").click(function(event) {
     $("#B").text(qArray[0].b);
     $("#C").text(qArray[0].c);
     $("#D").text(qArray[0].d);
+
+    // Turn on buttons
     $("#submit").prop('disabled', false);
+    $("#A").prop('disabled', false);
+    $("#B").prop('disabled', false);
+    $("#C").prop('disabled', false);
+    $("#D").prop('disabled', false);
+
+    // Specify clicked button
+
+    $("#A").click(function(event) {
+        $("#A").removeClass("btn-dark");
+        $("#A").addClass("btn-light");
+        $("#B, #C, #D").removeClass("btn-light");
+        $("#B, #C, #D").addClass("btn-dark");
+        console.log("you clicked A")
+    });
+    $("#B").click(function(event) {
+        $("#B").removeClass("btn-dark");
+        $("#B").addClass("btn-light");
+        $("#A, #C, #D").removeClass("btn-light");
+        $("#A, #C, #D").addClass("btn-dark");
+        console.log("you clicked B")
+    });
+    $("#C").click(function(event) {
+        $("#C").removeClass("btn-dark");
+        $("#C").addClass("btn-light");
+        $("#A, #B, #D").removeClass("btn-light");
+        $("#A, #B, #D").addClass("btn-dark");
+        console.log("you clicked C")
+    });
+    $("#D").click(function(event) {
+        $("#D").removeClass("btn-dark");
+        $("#D").addClass("btn-light");
+        $("#A, #B, #C").removeClass("btn-light");
+        $("#A, #B, #C").addClass("btn-dark");
+
+        console.log("you clicked D")
+    });
+
+
 
 });
+
+
 
 
 
@@ -140,6 +189,9 @@ $("#submit").click(function(event) {
     $("#C").text(qArray[countForI].c);
     $("#D").text(qArray[countForI].d);
 
+    // Resets buttons to dark or light
+    $("#A, #B, #C, #D").removeClass("btn-light");
+    $("#A, #B, #C, #D").addClass("btn-dark");
 
 });
 
