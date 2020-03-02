@@ -1,9 +1,47 @@
 var qNum = 1;
-var qArray = ["What color is the sky?",
-    "Why did the chicken cross the road?",
-    "What's the frequency, Kenneth?",
-    "Warum ist die Banane krumm?"
+
+// question Array
+var qArray = [{
+        question: "What color is the sky?",
+        a: "red",
+        b: "blue",
+        c: "green",
+        d: "purple"
+    },
+    {
+        question: "What color is the ocean",
+        a: "pink",
+        b: "blue",
+        c: "green",
+        d: "purple"
+    }, {
+        question: "What color is the sky?",
+        a: "red",
+        b: "blue",
+        c: "green",
+        d: "purple"
+    }, {
+        question: "What color is the sky?",
+        a: "red",
+        b: "blue",
+        c: "green",
+        d: "purple"
+    }, {
+        question: "What color is the sky?",
+        a: "red",
+        b: "blue",
+        c: "green",
+        d: "purple"
+    }, {
+        question: "What color is a banana?",
+        a: "red",
+        b: "blue",
+        c: "yellow",
+        d: "purple"
+    },
+
 ];
+
 
 
 
@@ -42,26 +80,37 @@ $("#startBtn").click(function(event) {
     }
     run_clock('#timerDisplay', deadline);
 
+
+
+    // initialize quiz with first question
+
     $("#questionNumber").text("Question #" + qNum++);
-    $("#question").append(qArray[0]);
-    $("#A").append("Red");
-    $("#B").append("Yellow");
-    $("#C").append("Blue");
-    $("#D").append("Green");
-    $("#submit").prop('disabled', false)
+    $("#question").text(qArray[0].question);
+    $("#A").text(qArray[0].a);
+    $("#B").text(qArray[0].b);
+    $("#C").text(qArray[0].c);
+    $("#D").text(qArray[0].d);
+    $("#submit").prop('disabled', false);
+
 });
+
+
+
 
 // submit button 
 $("#submit").click(function(event) {
 
-    for (var i = 1; i < 11; i++) {
-        $("#questionNumber").text("Question #" + qNum++);
-        $("#question").text(qArray[i++]);
+    for (var i = 0; i < qArray.length + 1; i++) {
+        $("#questionNumber").text("Question #" + i);
+        $("#question").text(qArray[i].question);
+        $("#A").text(qArray[i].a);
+        $("#B").text(qArray[i].b);
+        $("#C").text(qArray[i].c);
+        $("#D").text(qArray[i].d);
     };
 
+
     console.log("Should increment qNum");
-
-
 
 });
 
