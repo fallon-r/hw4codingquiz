@@ -181,19 +181,27 @@ $("#startBtn").click(function(event) {
 $("#submit").click(function(event) {
 
     countForI = countForI + 1;
+    if (countForI <= 10) {
+        $("#questionNumber").text("Question #" + countForI);
+        $("#question").text(qArray[countForI].question);
+        $("#A").text(qArray[countForI].a);
+        $("#B").text(qArray[countForI].b);
+        $("#C").text(qArray[countForI].c);
+        $("#D").text(qArray[countForI].d);
 
-    $("#questionNumber").text("Question #" + countForI);
-    $("#question").text(qArray[countForI].question);
-    $("#A").text(qArray[countForI].a);
-    $("#B").text(qArray[countForI].b);
-    $("#C").text(qArray[countForI].c);
-    $("#D").text(qArray[countForI].d);
+        // Resets buttons to dark or light
+        $("#A, #B, #C, #D").removeClass("btn-light");
+        $("#A, #B, #C, #D").addClass("btn-dark");
+    } else {
+        alert("You're done, son")
+    }
 
-    // Resets buttons to dark or light
-    $("#A, #B, #C, #D").removeClass("btn-light");
-    $("#A, #B, #C, #D").addClass("btn-dark");
+    // checks if question number is <10
+
+
 
 });
+
 
 
 
