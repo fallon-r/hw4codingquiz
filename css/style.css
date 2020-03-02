@@ -1,20 +1,51 @@
 /* question card & tabe spacer  */
 
-#questionCard {
+
+/* #questionCard {
     padding-top: 10%;
+} */
+
+#startBtn {
+    margin-bottom: 10px;
 }
 
-#HSTable {
+
+/* #HSTable {
     padding-top: 5%;
-}
+} */
 
 
 /* bg stylizer */
 
+html,
 body {
-    padding-top: 65px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+body {
     margin: auto;
     background-image: url(https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+nav {
+    top: 0;
+    position: fixed;
+    overflow: hidden;
+}
+
+main {
+    padding-top: 65px
+}
+
+footer {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
 }
