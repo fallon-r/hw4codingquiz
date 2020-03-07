@@ -5,67 +5,78 @@ var qArray = [{
         b: "Bill Gates",
         c: "Steve Jobs",
         d: "Richard Stallman",
+        answer: ($("#A"))
     },
     {
         question: "What is the command to clear a console?",
         a: "console.log(clear)",
         b: "console.empty()",
         c: "clear",
-        d: "console.clear()"
+        d: "console.clear()",
+        answer: ($("#D"))
     }, {
         question: "HTML stands for :",
         a: "Hyper Transient Maker Language",
         b: "Hyper Text Markup Language",
         c: "Halode Typographic Maximized Lexicon",
-        d: "Hadron Transforming Markdown Launcher"
+        d: "Hadron Transforming Markdown Launcher",
+        answer: ($("#B"))
     }, {
         question: "What color will the hex #ff0000 create?",
         a: "red",
         b: "blue",
         c: "green",
-        d: "purple"
+        d: "purple",
+        answer: ($("#A"))
     }, {
         question: "Who regulates HTML Standards?",
         a: "BSD",
         b: "Oracle",
         c: "Apple",
-        d: "W3C"
+        d: "W3C",
+        answer: ($("#D"))
     }, {
         question: "Who is the director of the W3C?",
         a: "Tim Cook",
         b: "Tim Curry",
         c: "Tim Allen",
-        d: "Tim Berners-Lee"
+        d: "Tim Berners-Lee",
+        answer: ($("#D"))
     }, {
         question: "The creator of the first ROM cartridge was:",
         a: "Jerry Lawler",
         b: "Jerry Lawson",
         c: "Jerry Seinfeld",
-        d: "Jerry Louis"
+        d: "Jerry Louis",
+        answer: ($("#B"))
     }, {
         question: "The following is NOT an array method",
         a: "array.splice()",
         b: "array.slice()",
         c: "array.split()",
-        d: "array.spin()"
+        d: "array.spin()",
+        answer: ($("#D"))
     }, {
         question: "If (i != 0) runs when",
         a: "i is NOT equal to 0",
         b: "i is equal to 0",
         c: "i = zero",
-        d: "i is undefined"
+        d: "i is undefined",
+        answer: ($("#A"))
     }, {
         question: "CSS stands for:",
         a: "Cascading Style Sandwich",
         b: "Cataclysmic Style Synthesizer",
         c: "Coronal Stylizing System",
-        d: "Cascading Style Sheet"
+        d: "Cascading Style Sheet",
+        answer: ($("#D"))
     }, {
         question: "if (i > 4 && n < 7) will run when",
         a: "i is 5",
         b: "i is 3 and n is 6",
         c: "n is 6",
-        d: "i is 7 and n is 5"
+        d: "i is 7 and n is 5",
+        answer: ($("#D"))
     }
 
 ];
@@ -98,7 +109,7 @@ $("#startBtn").click(function(event) {
     $("#startBtn").remove();
     // timer creation
     time_in_seconds = 120;
-    var current_time = Date.parse(new Date());
+    // var current_time = Date.parse(new Date());
 
 
 
@@ -107,9 +118,6 @@ $("#startBtn").click(function(event) {
         deadline = 120 - t;
         // seconds = Math.floor((t / 1000));
 
-
-
-        // adding slice to seconds to make sure there's a 0 when the numbers's <10
         return t;
     }
 
@@ -120,12 +128,33 @@ $("#startBtn").click(function(event) {
             var t = time_remaining(endtime);
             clock.innerHTML = t;
 
-            if (t <= 0) { clearInterval(timeinterval); }
+            if (t <= 0) { clearInterval(timeinterval); };
+
+            $("#submit").click(function(event) {
+                if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
+                    time_remaining(t) - 5;
+
+                    return t;
+                };
+                console.log("submit" + countForI);
+
+            })
+
         }
         update_clock();
+
+        // function subtractor() {
+        //     $("#submit").click(function() {
+        //         t = time_remaining + 10;
+        //         console.log("clicked submit");
+        //         return t;
+        //     })
+        // };
+
         var timeinterval = setInterval(update_clock, 1000);
 
-    }
+    };
+
     run_clock('#timerDisplay', deadline);
 
 
@@ -174,8 +203,6 @@ $("#startBtn").click(function(event) {
         $("#D").addClass("btn-light");
         $("#A, #B, #C").removeClass("btn-light");
         $("#A, #B, #C").addClass("btn-dark");
-
-        console.log("you clicked D")
     });
 
     // if () {
@@ -212,7 +239,7 @@ $("#submit").click(function(event) {
     }
 
     // checks if question number is <10
-    $("#timerDisplay").text(t - 10);
+
 
 });
 
