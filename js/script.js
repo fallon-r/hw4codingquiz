@@ -97,6 +97,7 @@ $("#A").prop('disabled', true);
 $("#B").prop('disabled', true);
 $("#C").prop('disabled', true);
 $("#D").prop('disabled', true);
+// timer functions
 
 
 
@@ -107,58 +108,9 @@ $("#startBtn").click(function(event) {
 
     // remove the start button
     $("#startBtn").remove();
-    // timer creation
-    time_in_seconds = 120;
-    // var current_time = Date.parse(new Date());
-
-
-
-    function time_remaining(endtime) {
-        t = time_in_seconds--;
-        deadline = 120 - t;
-        // seconds = Math.floor((t / 1000));
-
-        return t;
-    }
-
-    function run_clock(id, endtime) {
-        var clock = document.getElementById("timerDisplay");
-
-        function update_clock() {
-            var t = time_remaining(endtime);
-            clock.innerHTML = t;
-
-            if (t <= 0) { clearInterval(timeinterval); };
-
-            // $("#submit").click(function(event) {
-            //     if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
-            //         time_remaining(t) - 5;
-            //         
-            //         return t;
-            //     };
-            //     console.log("submit" + countForI);
-
-            // })
-
-        }
-        update_clock();
-
-        $("#submit").click(function(event) {
-            if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
-                time_remaining(t) - 5;
-
-                return t;
-            };
-            console.log("submit" + countForI);
-
-        })
-
-        var timeinterval = setInterval(update_clock, 1000);
-
-    };
-
-    run_clock('#timerDisplay', deadline);
-
+    // timer start
+    $("#timerDisplay.disabled").toggleClass("running");
+    console.log($("#timerDisplay").hasClass("running"));
 
 
     // initialize quiz with first question
@@ -214,6 +166,63 @@ $("#startBtn").click(function(event) {
 
 });
 
+// clock runs if condition met
+
+
+// time_in_seconds = 120;
+// countForI = countForI + 1;
+// // var current_time = Date.parse(new Date());
+
+// console.log("if statement called");
+
+// function time_remaining(endtime) {
+//     t = time_in_seconds--;
+//     deadline = 120 - t;
+//     // seconds = Math.floor((t / 1000));
+
+//     return t;
+// }
+// if ($("#timerDisplay").hasClass("running")) {
+//     function run_clock(id, endtime) {
+//         var clock = document.getElementById("timerDisplay");
+//         console.log('r-c called');
+
+//         function update_clock() {
+//             var t = time_remaining(endtime);
+//             clock.innerHTML = t;
+//             console.log("update called")
+//             if (t <= 0) { clearInterval(timeinterval); };
+
+//             // $("#submit").click(function(event) {
+//             //     if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
+//             //         time_remaining(t) - 5;
+//             //         
+//             //         return t;
+//             //     };
+//             //     console.log("submit" + countForI);
+
+//             // })
+
+//         }
+//         update_clock();
+//     };
+//     $("#submit").click(function(event) {
+//         if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
+//             time_remaining(t) - 5;
+
+//             return t;
+//         };
+//         console.log("submit" + countForI);
+
+//     })
+
+//     var timeinterval = setInterval(update_clock, 1000);
+
+// };
+
+// run_clock('#timerDisplay', deadline);
+// Console.log('if condition met, clock should run');
+
 
 
 
@@ -245,14 +254,17 @@ $("#submit").click(function(event) {
 
         $("#questionNumber").text("Congrats, you made it to the end.")
         $("#question").prepend("<img src='https://media.giphy.com/media/W9lzJDwciz6bS/giphy.gif' style='display:block;margin-left:auto;margin-right:auto;width:40%;height:40%%,max-height:200px;max-width:200px'>");
-        $("#answerButton").append("<input type='text' maxlength='3'>");
-        $("#answerButton").append("<h1 style='color:green'>").text(t.value);
-        $("#answerButton").append("<p style='color:green'>").text("Please enter your initials ");
-        $("#answerButton").append("<input type='text' class='width-25'>");
+        // $("#answerButton").append("<h1 style='color:green'>").text(t.value);
+        $("#answerButton").append("<p class='text-light'>");
+        $("#answerButton").text("Please enter your initials");
+
+        $("#answerButton").append("<input type='text' maxlength='3' id='initials'>");
 
         $("#submit").text("You are the one");
-
-    }
+        $("#submit").click(function(event) {
+            localStorage.setItem($("#initials").val);
+        })
+    };
 
     // checks if question number is <10
 
