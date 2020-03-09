@@ -36,7 +36,7 @@
     </header>
     <!-- cards to be fillied -->
     <main>
-        <div class="container-fluid col-10 col-md-10 col-sm-10 justify-content-center" id="questionCard">
+        <div class="container-fluid col-12 col-md-12 col-sm-12 justify-content-center" id="questionCard">
             <div class="card bg-secondary">
                 <!-- card header holds the q# -->
                 <div class="card-header text-center bg-dark text-success lead" id="questionNumber"> </div>
@@ -44,7 +44,7 @@
                 <div class="card-title text-left text-light ml-2 lead" id="question"></div>
                 <div class="card-body">
                     <!-- here the user selects their answer. onclick the buttons will switch to active appearance and the answer will be logged -->
-                    <div class="btn-grp-vertical btn-group-justified w justify-content-center" role="group">
+                    <div class="btn-grp-vertical btn-group-justified w justify-content-center" role="group" id="answerButton">
                         <button class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="button" type="button" id="A" aria-pressed="false" autocomplete="off">A: </button>
                         <button class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="button" type="button" id="B" aria-pressed="false" autocomplete="off">B: </button>
                         <button class="btn btn-rounded btn-block btn-dark text-left text-success" data-toggle="checked" type="button" id="C" aria-pressed="false" autocomplete="off">C: </button>

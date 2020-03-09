@@ -130,26 +130,28 @@ $("#startBtn").click(function(event) {
 
             if (t <= 0) { clearInterval(timeinterval); };
 
-            $("#submit").click(function(event) {
-                if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
-                    time_remaining(t) - 5;
+            // $("#submit").click(function(event) {
+            //     if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
+            //         time_remaining(t) - 5;
+            //         
+            //         return t;
+            //     };
+            //     console.log("submit" + countForI);
 
-                    return t;
-                };
-                console.log("submit" + countForI);
-
-            })
+            // })
 
         }
         update_clock();
 
-        // function subtractor() {
-        //     $("#submit").click(function() {
-        //         t = time_remaining + 10;
-        //         console.log("clicked submit");
-        //         return t;
-        //     })
-        // };
+        $("#submit").click(function(event) {
+            if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
+                time_remaining(t) - 5;
+
+                return t;
+            };
+            console.log("submit" + countForI);
+
+        })
 
         var timeinterval = setInterval(update_clock, 1000);
 
@@ -233,8 +235,22 @@ $("#submit").click(function(event) {
         $("#A, #B, #C, #D").removeClass("btn-light");
         $("#A, #B, #C, #D").addClass("btn-dark");
     } else {
-        alert("You're done, son")
-        stopTimer();
+
+        // stops clock & stores time as score 
+
+        // Empties card for initial submission
+        $("#questionNumber").empty();
+        $("#question").empty();
+        $("#answerButton").empty();
+
+        $("#questionNumber").text("Congrats, you made it to the end.")
+        $("#question").prepend("<img src='https://media.giphy.com/media/W9lzJDwciz6bS/giphy.gif' style='display:block;margin-left:auto;margin-right:auto;width:40%;height:40%%,max-height:200px;max-width:200px'>");
+        $("#answerButton").append("<input type='text' maxlength='3'>");
+        $("#answerButton").append("<h1 style='color:green'>").text(t.value);
+        $("#answerButton").append("<p style='color:green'>").text("Please enter your initials ");
+        $("#answerButton").append("<input type='text' class='width-25'>");
+
+        $("#submit").text("You are the one");
 
     }
 
