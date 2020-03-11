@@ -259,10 +259,10 @@ $("#submit").click(function(event) {
         $("#answerButton").text("Please enter your initials");
 
         $("#answerButton").append("<input type='text' maxlength='3' id='initials'>");
-
+        var iniInput = document.getElementById("initials").value;
         $("#submit").text("You are the one");
         $("#submit").click(function(event) {
-            localStorage.setItem($("#initials").val);
+            localStorage.setItem('ini', iniInput);
         })
     };
 

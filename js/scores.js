@@ -1,5 +1,8 @@
-function fillTable(items) {
-    var score = localStorage.getItem($("#initials").val);
+var score = score = localStorage.getItem('ini');
 
-    $("#ini1").append(score);
-}
+
+$("#initial1").text(score);
+console.log("function ran");
+
+
+console.log(localStorage.getItem("ini"));
