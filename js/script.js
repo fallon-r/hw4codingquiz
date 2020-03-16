@@ -78,16 +78,12 @@ var qArray = [{
         d: "i is 7 and n is 5",
         answer: ($("#D"))
     }
-
 ];
-
-var t;
-var seconds;
-var deadline;
-var time_in_seconds;
-
 // Makes iterating through the clock easier 
 var countForI = 0;
+var time = qArray.length * 10;
+var liveTimer = document.getElementById("timerDisplay");
+
 
 // global variables to manipulate timer on multiple click events
 
@@ -98,6 +94,17 @@ $("#B").prop('disabled', true);
 $("#C").prop('disabled', true);
 $("#D").prop('disabled', true);
 // timer functions
+
+
+function answerCheck() {
+
+    console.log("clicked submit; time should decrement");
+    time -= 3;
+    liveTimer.innerHTML = time;
+};
+$("#submit").click(function(event) {
+    answerCheck();
+})
 
 
 
@@ -159,127 +166,19 @@ $("#startBtn").click(function(event) {
         $("#A, #B, #C").addClass("btn-dark");
     });
 
-    // if () {
-    //     alert("You're done bro")
-    // }
 
+    //timer 
 
-});
-
-// clock runs if condition met
-
-
-// time_in_seconds = 120;
-// countForI = countForI + 1;
-// // var current_time = Date.parse(new Date());
-
-// console.log("if statement called");
-
-// function time_remaining(endtime) {
-//     t = time_in_seconds--;
-//     deadline = 120 - t;
-//     // seconds = Math.floor((t / 1000));
-
-//     return t;
-// }
-// if ($("#timerDisplay").hasClass("running")) {
-//     function run_clock(id, endtime) {
-//         var clock = document.getElementById("timerDisplay");
-//         console.log('r-c called');
-
-//         function update_clock() {
-//             var t = time_remaining(endtime);
-//             clock.innerHTML = t;
-//             console.log("update called")
-//             if (t <= 0) { clearInterval(timeinterval); };
-
-//             // $("#submit").click(function(event) {
-//             //     if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
-//             //         time_remaining(t) - 5;
-//             //         
-//             //         return t;
-//             //     };
-//             //     console.log("submit" + countForI);
-
-//             // })
-
-//         }
-//         update_clock();
-//     };
-//     $("#submit").click(function(event) {
-//         if (qArray[countForI - 1].answer.hasClass("btn-light") == false) {
-//             time_remaining(t) - 5;
-
-//             return t;
-//         };
-//         console.log("submit" + countForI);
-
-//     })
-
-//     var timeinterval = setInterval(update_clock, 1000);
-
-// };
-
-// run_clock('#timerDisplay', deadline);
-// Console.log('if condition met, clock should run');
-
-
-
-
-
-
-// submit button 
-$("#submit").click(function(event) {
-
-    countForI = countForI + 1;
-    if (countForI <= 10) {
-        $("#questionNumber").text("Question #" + countForI);
-        $("#question").text(qArray[countForI].question);
-        $("#A").text(qArray[countForI].a);
-        $("#B").text(qArray[countForI].b);
-        $("#C").text(qArray[countForI].c);
-        $("#D").text(qArray[countForI].d);
-
-        // Resets buttons to dark or light
-        $("#A, #B, #C, #D").removeClass("btn-light");
-        $("#A, #B, #C, #D").addClass("btn-dark");
-    } else {
-
-        // stops clock & stores time as score 
-
-        // Empties card for initial submission
-        $("#questionNumber").empty();
-        $("#question").empty();
-        $("#answerButton").empty();
-
-        $("#questionNumber").text("Congrats, you made it to the end.")
-        $("#question").prepend("<img src='https://media.giphy.com/media/W9lzJDwciz6bS/giphy.gif' style='display:block;margin-left:auto;margin-right:auto;width:40%;height:40%%,max-height:200px;max-width:200px'>");
-        // $("#answerButton").append("<h1 style='color:green'>").text(t.value);
-        $("#answerButton").append("<p class='text-light'>");
-        $("#answerButton").text("Please enter your initials");
-
-        $("#answerButton").append("<input type='text' maxlength='3' id='initials'>");
-        var iniInput = document.getElementById("initials").value;
-        $("#submit").text("You are the one");
-        $("#submit").click(function(event) {
-            localStorage.setItem('ini', iniInput);
-        })
-    };
-
-    // checks if question number is <10
-
+    createTimer();
 
 });
 
+function createTimer() {
 
+    liveTimer.innerHTML = time;
+    var timer = setInterval(function() {
+        liveTimer.innerHTML = liveTimer.innerHTML - 1;
 
+    }, 1000)
 
-// Outline / Pseudo code
-// for HW - week 4
-
-// Generate first question + answers + data attributes 
-// add "click" event for answer buttons 
-// increment a counter
-// Generate question 
-// if incorrect 
-//deduct time counter
+};
