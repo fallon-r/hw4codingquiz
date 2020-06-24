@@ -71,4 +71,23 @@ p {
     color: green;
 }
 
-;
+.choice {
+    height: 25%;
+    width: 80%;
+    padding: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+.choice label {
+    font-size: 80%;
+    margin: auto;
+    color: green;
+}
+
+.card-body {
+    align-items: center;
+}
