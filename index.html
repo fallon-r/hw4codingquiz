@@ -10,7 +10,7 @@
     <title>Coding Quiz</title>
     <!-- css pages -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 
 
@@ -42,7 +42,7 @@
                 <div class="card-title text-left text-light ml-2 lead" id="question"></div>
                 <div class="card-body">
                     <!-- here the user selects their answer. onclick the buttons will switch to active appearance and the answer will be logged -->
-                    <form action="" class="was-validated">
+                    <form action="" class="was-validated" onsubmit="return false">
                         <div class="custom-control custom-radio">
                             <div class="choice rounded-pill text-center">
                                 <input type="radio" name="choice" id="A" value="A" required disabled>
@@ -71,13 +71,13 @@
                 </div>
                 <div class="card-footer w-100 bg-dark justify-content-center" id="cardFoot">
                     <!-- stores user answer in session storage  -->
-                    <input class="btn btn-rounded btn-block btn-success mx-auto w-50" type="submit" id="submit" disabled>
+                    <input class="btn btn-rounded btn-block btn-success mx-auto w-50" type="button" id="submit" value="Submit" disabled>
                 </div>
                 </form>
             </div>
         </div>
     </main>
-    <footer class="footer footer-expand bg-dark text-success fixed-bottom">
+    <footer class="page-footer footer bg-dark text-success">
         <div class="container-fluid text-">
             <span class="footer-text text-success display-4 disabled" id="timerDisplay">
                 <button class="btn btn-lg btn-warning text-success" id="startBtn">Begin Quiz</button>
@@ -87,8 +87,8 @@
 
     <!-- java scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src=" js/questions.js "></script>
-    <script src=" js/script.js "></script>
+    <script src="assets/js/questions.js "></script>
+    <script src=" assets/js/script.js "></script>
 
 
 
