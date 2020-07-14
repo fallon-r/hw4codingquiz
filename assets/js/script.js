@@ -22,9 +22,9 @@ var chD = $("#D").next();
 var complete = "<img src='https://media.giphy.com/media/W9lzJDwciz6bS/giphy.gif' class='image-fluid center' id='complete'/>"+"<input type='text' id='initials' class='center rounded text-center'  maxlength='3' placeholder='Initials go here'/>";
 
 //sfx for
-var kungFu = new Audio("/assets/kungfu.wav");
-var rightSound = new Audio("/assets/true.wav");
-var wrongSound = new Audio("/assets/wrong.wav");
+var kungFu = new Audio("./assets/kungfu.wav");
+var rightSound = new Audio("./assets/true.wav");
+var wrongSound = new Audio(".assets/wrong.wav");
 //quiz initializer
 function start (){
     // initialize form buttons
