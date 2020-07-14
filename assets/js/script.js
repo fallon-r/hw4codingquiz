@@ -4,6 +4,8 @@ var currentQ = 0;
 var time = qArray.length * 10; 
 var timer;
 var score;
+var userInitials="";
+
 
 // DOM elements to cut back on code
 var starter = $("#startBtn");
@@ -17,7 +19,7 @@ var chC = $("#C").next();
 var chD = $("#D").next();
 
 // Completion elements
-var complete = "<img src='https://media.giphy.com/media/W9lzJDwciz6bS/giphy.gif' class='image-fluid align-self-center' id='complete'/>"+"<input type='text' id='initials' class='align-self-center'/>";
+var complete = "<img src='https://media.giphy.com/media/W9lzJDwciz6bS/giphy.gif' class='image-fluid center' id='complete'/>"+"<input type='text' id='initials' class='center rounded text-center'  maxlength='3' placeholder='Initials go here'/>";
 
 //sfx for
 var kungFu = new Audio("/assets/kungfu.wav");
@@ -103,15 +105,62 @@ function finish(){
     kungFu.play();
     $("#questionCard").children().clear;
     $("footer").remove();
-    $(".choice").remove();
+    $("form").remove();
+    submit.remove();
+    $("#cardFoot").append("<input type='button' id='submitScore' class='btn btn-rounded btn-block btn-success mx-auto w-50' enabled value='Submit' />")
+
         qNum.text("You are the one");
     question.text("Congratulations you scored " + score + " points. Enter your initials below to go on the leaderboard.")
-    $(".card-body").append(complete);
+    $(".card-body").prepend(complete);
+
+    $("#submitScore").on("click", function(){
+        userInitials = $("#initials").val().trim();
+
+        if(userInitials.length === 0){
+            alert("Initials cannot be empty")
+        }else{
     
-
-
+        scoreSubmit()
+        }
+    })
 
 }
+
+function scoreSubmit(){
+    var finalScore = {
+        score: score,
+        initials: userInitials
+    };
+
+    var highscore= JSON.parse(localStorage.getItem("highscores")) || [];
+
+
+
+    // highscore push
+   
+
+    highscore.unshift(finalScore);
+
+
+    highscore.sort(function(a,b){
+        return b.score - a.score;
+    })
+
+    if(highscore.length > 10){
+        highscore.pop();
+    }
+
+    localStorage.setItem("highscores", JSON.stringify(highscore))
+
+    window.location.href = "highscores.html";
+
+
+
+
+ 
+
+}
+
 
 
 starter.click(function(event){

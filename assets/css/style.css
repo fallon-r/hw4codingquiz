@@ -51,7 +51,7 @@ main {
 
 footer {
     position: absolute;
-    height: 100px;
+    /* height: 100px; */
     bottom: 0;
     width: 100%;
     text-align: center
@@ -91,17 +91,24 @@ p {
 
 .card-body {
     align-items: center;
-    padding: 0
+    padding: 0;
 }
 
 #complete{ 
     align-self: center;
-    max-height: 10vh;
-    max-width: 10vw;
-    margin: auto
+    max-height:40vh;
+    max-width: 40vw;
+    padding-bottom: 5vh;
+
 }
 
 #initials{
     align-self: center;
-    width: 100%;
+    width: 95%;
+    margin-bottom: 2vh;
 }
+
+#HSTable{
+    margin-bottom: 3px
+}
+
